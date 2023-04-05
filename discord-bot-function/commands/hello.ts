@@ -10,7 +10,7 @@ import {
     constructor(creator: SlashCreator) {
       let cDesc = {
         name: "hello",
-        description: "Says hello to you.",
+        description: "evoilailsolenelpiatto.",
         options: [
           {
             type: CommandOptionType.STRING,

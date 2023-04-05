@@ -1,6 +1,8 @@
 import { join } from "path";
 import { env } from "process";
 import { AzureFunctionServer, SlashCreator } from "slash-create";
+import { HelloCommand } from "./commands/hello";
+
 
 (async () => {
   const creator = new SlashCreator({
@@ -13,6 +15,6 @@ import { AzureFunctionServer, SlashCreator } from "slash-create";
     // The first argument is required, but the second argument is the "target" or the name of the export.
     // By default, the target is "interactions".
     .withServer(new AzureFunctionServer(module.exports))
-    .registerCommandsIn(join(__dirname, "commands"))
+    .registerCommand(HelloCommand)
     .syncCommandsIn(env.COMMANDS_GUILD_ID);
 })();
