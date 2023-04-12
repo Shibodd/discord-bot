@@ -1,6 +1,7 @@
 import { join } from "path";
 import { env } from "process";
 import { AzureFunctionServer, SlashCreator } from "slash-create";
+import { ButtonCommand } from "./commands/button_cmd";
 import { ReadfileCommand } from "./commands/readfile";
 
 
@@ -15,6 +16,9 @@ import { ReadfileCommand } from "./commands/readfile";
     // The first argument is required, but the second argument is the "target" or the name of the export.
     // By default, the target is "interactions".
     .withServer(new AzureFunctionServer(module.exports))
-    .registerCommand(ReadfileCommand)
+    .registerCommands([
+      ReadfileCommand,
+      ButtonCommand
+    ])
     .syncCommandsIn(env.COMMANDS_GUILD_ID);
 })();
